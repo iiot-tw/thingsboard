@@ -1,0 +1,29 @@
+{
+  "server": {
+    "name": "Temperature Sensor",
+    "type": "serial",
+    "method": "rtu",
+    "port": "/dev/ttyS1",
+    "baudrate": 9600,
+    "timeout": 35,
+    "devices": [
+      {
+        "unitId": 1,
+        "deviceName": "TH_Automation_T_0",
+        "attributesPollPeriod": 5000,
+        "timeseriesPollPeriod": 1000,
+        "sendDataOnlyOnChange": false,
+        "timeseries": [
+          {
+            "byteOrder": "BIG",
+            "tag": "temperature",
+            "type": "long",
+            "functionCode": 3,
+            "registerCount": 1,
+            "address": 563
+          }
+        ]
+      }
+    ]
+  }
+}
