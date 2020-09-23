@@ -1,6 +1,6 @@
 {
   "server": {
-    "name": "Temperature Sensor",
+    "name": "CG_ESTHW50A2D",
     "type": "serial",
     "method": "rtu",
     "port": "/dev/ttyS1",
@@ -9,7 +9,7 @@
     "devices": [
       {
         "unitId": 1,
-        "deviceName": "TH_Automation_T_0",
+        "deviceName": "CG_ESTHW50A2D-00",
         "attributesPollPeriod": 5000,
         "timeseriesPollPeriod": 1000,
         "sendDataOnlyOnChange": false,
@@ -21,7 +21,15 @@
             "functionCode": 3,
             "registerCount": 1,
             "address": 563
-          }
+          },
+          {
+            "byteOrder": "BIG",
+            "tag": "humidity",
+            "type": "long",
+            "functionCode": 3,
+            "registerCount": 1,
+            "address": 565
+          }          
         ]
       }
     ]
