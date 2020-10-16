@@ -1,8 +1,8 @@
-HOST="http://cloud.iiot.tw"
-ACCESS_TOKEN=$(sudo get-uuid)
+HOST="cloud.iiot.tw"
+ACCESS_TOKEN=AM$(sudo ./igtA mac1)
 
 # publish client side attribute
 attr="{\
-      \"att1\":\"v1\"\
+      \"MAC\":\"$(sudo ./igtA mac1)\"\
       }"
-curl -v -X POST -d $attr http://$HOST/api/v1/$ACCESS_TOKEN/attributes --header "Content-Type:application/json"
+curl -v -X POST -d "{$attr}" http://$HOST/api/v1/$ACCESS_TOKEN/attributes --header "Content-Type:application/json"
