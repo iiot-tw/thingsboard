@@ -8,7 +8,7 @@ TOKEN=$(sudo ~/igtA token)
 
 cat << EOF > /tmp/tb_gateway.yaml
 thingsboard:
-  host: demo.thingsboard.io
+  host: ${HOST}
   port: 1883
   remoteConfiguration: false
   security:
