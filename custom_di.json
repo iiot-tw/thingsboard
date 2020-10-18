@@ -1,0 +1,17 @@
+{
+  "devices": [
+    {
+      "deviceName": "IGT33_DI",
+      "timeseries": [
+        {
+          "tag": "DI_0",
+          "address": 47
+        },
+        {
+          "tag": "DI_1",
+          "address": 46
+        }
+      ]
+    }
+  ]
+}
