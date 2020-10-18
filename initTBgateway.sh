@@ -27,6 +27,6 @@ connectors:
 EOF
 
 sudo cp /tmp/tb_gateway.yaml /etc/thingsboard-gateway/config/tb_gateway.yaml
-sudo mkdir -p /usr/lib/python3/dist-packages/thingsboard_gateway/extensions/di
-sudo cp ./custom_di_connector.py /usr/lib/python3/dist-packages/thingsboard_gateway/extensions/di
+sudo mkdir -p  /var/lib/thingsboard_gateway/extensions/di
+sudo cp ./custom_di_connector.py  /var/lib/thingsboard_gateway/extensions/di
 sudo cp ./custom_di.json /etc/thingsboard-gateway/config/
