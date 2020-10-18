@@ -1,0 +1,17 @@
+{
+  "devices": [
+    {
+      "deviceName": "IGT22",
+      "timeseries": [
+        {
+          "tag": "btn0",
+          "address": 4
+        },
+        {
+          "tag": "btn1",
+          "address": 5
+        }
+      ]
+    }
+  ]
+}
