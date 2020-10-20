@@ -2,6 +2,7 @@ wget https://github.com/iiot-tw/thingsboard/raw/master/igtInfo -O /neousys/igtIn
 chmod +x /neousys/igtInfo
 
 wget https://github.com/thingsboard/thingsboard-gateway/releases/download/2.5.1/python3-thingsboard-gateway.deb
+sudo apt update
 sudo apt install ./python3-thingsboard-gateway.deb -y
 
 HOST=cloud.iiot.tw
