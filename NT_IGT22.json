@@ -42,7 +42,7 @@
           "address": 7
         },
         {
-          "tag": "DO_7,
+          "tag": "DO_7",
           "address": 103
         },        
         {
@@ -54,23 +54,23 @@
           "address": 20
         },
         {
-          "tag": "DI_2,
+          "tag": "DI_2",
           "address": 115
         },
         {
-          "tag": "DI_4,
+          "tag": "DI_4",
           "address": 51
         },
         {
-          "tag": "DI_5,
+          "tag": "DI_5",
           "address": 52
         },
         {
-          "tag": "DI_6,
+          "tag": "DI_6",
           "address": 49
         },
         {
-          "tag": "DI_7,
+          "tag": "DI_7",
           "address": 50
         }
       ]
