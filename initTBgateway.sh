@@ -40,3 +40,6 @@ sudo mv ./custom_di_connector.py  /var/lib/thingsboard_gateway/extensions/di
 
 wget https://raw.githubusercontent.com/iiot-tw/thingsboard/master/NT_IGT22.json
 sudo mv ./NT_IGT22.json /etc/thingsboard-gateway/config/
+
+wget https://raw.githubusercontent.com/iiot-tw/thingsboard/master/TB55.json
+sudo mv ./TB55.json /etc/thingsboard-gateway/config/
