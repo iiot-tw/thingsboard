@@ -1,0 +1,37 @@
+{
+  "server": {
+    "name": "Modbus Default Server",
+    "type": "serial",
+    "method": "rtu",
+    "port": "/dev/ttyS2",
+    "baudrate": 9600,
+    "timeout": 35,
+    "devices": [
+      {
+        "unitId": 1,
+        "deviceName": "IGT99998_TB55",
+        "attributesPollPeriod": 5000,
+        "timeseriesPollPeriod": 5000,
+        "sendDataOnlyOnChange": false,
+        "timeseries": [
+          {
+            "byteOrder": "BIG",
+            "tag": "temperature",
+            "type": "16int",
+            "functionCode": 4,
+            "registerCount": 1,
+            "address": 1
+          },
+          {
+            "byteOrder": "BIG",
+            "tag": "humidity",
+            "type": "16int",
+            "functionCode": 4,
+            "registerCount": 1,
+            "address": 2
+          }
+        ]
+      }
+    ]
+  }
+}
