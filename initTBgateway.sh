@@ -1,7 +1,9 @@
 wget https://github.com/iiot-tw/thingsboard/raw/master/igtInfo -O /neousys/igtInfo
 chmod +x /neousys/igtInfo
 
-wget https://github.com/thingsboard/thingsboard-gateway/releases/download/2.5.1/python3-thingsboard-gateway.deb
+#Modbus seems not work properly on 2.5.1. check later
+#wget https://github.com/thingsboard/thingsboard-gateway/releases/download/2.5.1/python3-thingsboard-gateway.deb
+wget https://github.com/thingsboard/thingsboard-gateway/releases/download/2.5.0/python3-thingsboard-gateway.deb
 sudo apt update
 sudo apt install ./python3-thingsboard-gateway.deb -y
 
