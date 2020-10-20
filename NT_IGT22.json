@@ -1,15 +1,77 @@
 {
   "devices": [
     {
-      "deviceName": "IGT22",
+      "deviceName": "IGT-22_DB"
+      "timeseriesPollPeriod": 5000,
+      "sendDataOnlyOnChange": false,
       "timeseries": [
         {
-          "tag": "btn0",
+          "tag": "BTN_0",
           "address": 4
         },
         {
-          "tag": "btn1",
+          "tag": "BTN_1",
           "address": 5
+        },
+        {
+          "tag": "DO_0",
+          "address": 111
+        },
+        {
+          "tag": "DO_1",
+          "address": 110
+        },
+        {
+          "tag": "DO_2",
+          "address": 112
+        },
+        {
+          "tag": "DO_3",
+          "address": 113
+        },
+        {
+          "tag": "DO_4",
+          "address": 117
+        },
+        {
+          "tag": "DO_5",
+          "address": 104
+        },
+        {
+          "tag": "DO_6",
+          "address": 7
+        },
+        {
+          "tag": "DO_7,
+          "address": 103
+        },        
+        {
+          "tag": "DI_0",
+          "address": 116
+        },
+        {
+          "tag": "DI_1",
+          "address": 20
+        },
+        {
+          "tag": "DI_2,
+          "address": 115
+        },
+        {
+          "tag": "DI_4,
+          "address": 51
+        },
+        {
+          "tag": "DI_5,
+          "address": 52
+        },
+        {
+          "tag": "DI_6,
+          "address": 49
+        },
+        {
+          "tag": "DI_7,
+          "address": 50
         }
       ]
     }
