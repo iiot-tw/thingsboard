@@ -58,6 +58,10 @@
           "address": 115
         },
         {
+          "tag": "DI_3",
+          "address": 114
+        },        
+        {
           "tag": "DI_4",
           "address": 51
         },
