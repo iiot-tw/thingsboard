@@ -27,19 +27,6 @@
                   "_hash": 0.15418219857564597
                 },
                 {
-                  "name": "localIp",
-                  "type": "attribute",
-                  "label": "local IP",
-                  "color": "#2196f3",
-                  "settings": {},
-                  "_hash": 0.8339238980232369,
-                  "units": null,
-                  "decimals": null,
-                  "funcBody": null,
-                  "usePostProcessing": true,
-                  "postFuncBody": "return value.replaceAll('@','/').replaceAll('&','<br>');"
-                },
-                {
                   "name": "lastActivityTime",
                   "type": "attribute",
                   "label": "lastActivityTime",
@@ -51,6 +38,27 @@
                   "funcBody": null,
                   "usePostProcessing": true,
                   "postFuncBody": "let date = new Date(value )\ndataValues = date.getFullYear()+\"/\"+(date.getMonth()+1)+\"/\"+date.getDate()+\"T\"+date.getHours()+\":\"+date.getMinutes()+\":\"+date.getSeconds();\nreturn dataValues;"
+                },
+                {
+                  "name": "localIp",
+                  "type": "attribute",
+                  "label": "local IP",
+                  "color": "#2196f3",
+                  "settings": {},
+                  "_hash": 0.8339238980232369,
+                  "units": null,
+                  "decimals": null,
+                  "funcBody": null,
+                  "usePostProcessing": true,
+                  "postFuncBody": "IPs = value.split('&');\n//IPs = value.replaceAll('&','<br>');\nretStr =\"\";\n\nIPs.forEach(function(item){\n    retStr=retStr+item+\"<br>\";\n});\nreturn retStr;"
+                },
+                {
+                  "name": "localIpLastUpdate",
+                  "type": "attribute",
+                  "label": "localIpLastUpdate",
+                  "color": "#ffc107",
+                  "settings": {},
+                  "_hash": 0.8668179624494041
                 }
               ]
             }
@@ -60,12 +68,12 @@
               "timewindowMs": 60000
             }
           },
-          "showTitle": false,
-          "backgroundColor": "#fff",
-          "color": "rgba(0, 0, 0, 0.87)",
+          "showTitle": true,
+          "backgroundColor": "#000000",
+          "color": "#ffffff",
           "padding": "8px",
           "settings": {},
-          "title": "New Attributes card",
+          "title": "IGT-22 Information",
           "showTitleIcon": false,
           "iconColor": "rgba(0, 0, 0, 0.87)",
           "iconSize": "24px",
@@ -185,7 +193,7 @@
               "limit": 25000
             }
           },
-          "showTitle": false,
+          "showTitle": true,
           "backgroundColor": "#000000",
           "color": "#d1d1d1",
           "padding": "8px",
@@ -217,7 +225,7 @@
               "showLabels": true
             }
           },
-          "title": "New Timeseries - Flot",
+          "title": "Realtime and History Chart",
           "dropShadow": true,
           "enableFullscreen": true,
           "titleStyle": {
@@ -282,9 +290,9 @@
               "timewindowMs": 60000
             }
           },
-          "showTitle": false,
+          "showTitle": true,
           "backgroundColor": "#000000",
-          "color": "rgba(0, 0, 0, 0.87)",
+          "color": "#ffffff",
           "padding": "8px",
           "settings": {
             "maxValue": 100,
@@ -335,14 +343,14 @@
               "shadowColor": "rgba(0, 0, 0, 0.49)",
               "color": "#444"
             },
-            "minValue": -100,
             "colorNeedleShadowDown": "rgba(188,143,143,0.45)",
             "colorValueBoxRect": "#888",
             "colorValueBoxRectEnd": "#666",
             "colorValueBoxBackground": "#babab2",
-            "colorValueBoxShadow": "rgba(0,0,0,1)"
+            "colorValueBoxShadow": "rgba(0,0,0,1)",
+            "minValue": 0
           },
-          "title": "New Radial gauge - Canvas Gauges",
+          "title": "Latest Humidity (Modbus)",
           "dropShadow": true,
           "enableFullscreen": false,
           "titleStyle": {
@@ -396,9 +404,9 @@
               "timewindowMs": 60000
             }
           },
-          "showTitle": false,
+          "showTitle": true,
           "backgroundColor": "#000000",
-          "color": "rgba(0, 0, 0, 0.87)",
+          "color": "#ffffff",
           "padding": "8px",
           "settings": {
             "maxValue": 60,
@@ -519,7 +527,7 @@
             "minValue": -60,
             "valueInt": 2
           },
-          "title": "New Temperature radial gauge - Canvas Gauges",
+          "title": "Latest Temperature (Modbus)",
           "dropShadow": true,
           "enableFullscreen": false,
           "titleStyle": {
@@ -527,7 +535,7 @@
             "fontWeight": 400
           },
           "showTitleIcon": false,
-          "iconColor": "rgba(0, 0, 0, 0.87)",
+          "iconColor": "rgba(255,255,255,0.87)",
           "iconSize": "24px",
           "titleTooltip": "",
           "widgetStyle": {},
@@ -640,12 +648,12 @@
               "timewindowMs": 60000
             }
           },
-          "showTitle": false,
-          "backgroundColor": "#fff",
-          "color": "rgba(0, 0, 0, 0.87)",
+          "showTitle": true,
+          "backgroundColor": "#000000",
+          "color": "#ffffff",
           "padding": "8px",
           "settings": {},
-          "title": "New Attributes card",
+          "title": "Built-in DI/O and Button",
           "showTitleIcon": false,
           "iconColor": "rgba(0, 0, 0, 0.87)",
           "iconSize": "24px",
@@ -663,6 +671,88 @@
         "row": 0,
         "col": 0,
         "id": "6a15d1fd-d8ee-e989-efff-b49da78b3c4e"
+      },
+      "55e97a0f-faab-bfa2-4bb0-3d7cc1b8c95d": {
+        "isSystemType": true,
+        "bundleAlias": "cards",
+        "typeAlias": "html_card",
+        "type": "static",
+        "title": "New widget",
+        "sizeX": 7.5,
+        "sizeY": 3,
+        "config": {
+          "datasources": [],
+          "timewindow": {
+            "realtime": {
+              "timewindowMs": 60000
+            }
+          },
+          "showTitle": false,
+          "backgroundColor": "#0087ff",
+          "color": "#ffffff",
+          "padding": "8px",
+          "settings": {
+            "cardHtml": "<div class='card'>\nNeousys IGT-22 Environmental Monitoring Kit<br>\n</div>",
+            "cardCss": ".card {\n    font-weight: bold;\n    font-size: 24px;\n    width: 100%;\n    height: 100%;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n.card1 {\n    font-weight: bold;\n    font-size: 24px;\n    width: 100%;\n    height: 100%;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}"
+          },
+          "title": "New HTML Card",
+          "dropShadow": true,
+          "showTitleIcon": false,
+          "iconColor": "rgba(0, 0, 0, 0.87)",
+          "iconSize": "24px",
+          "titleTooltip": "",
+          "enableFullscreen": false,
+          "widgetStyle": {},
+          "titleStyle": {
+            "fontSize": "16px",
+            "fontWeight": 400
+          },
+          "showLegend": false
+        },
+        "row": 0,
+        "col": 0,
+        "id": "55e97a0f-faab-bfa2-4bb0-3d7cc1b8c95d"
+      },
+      "d8e5dcea-43bf-c788-1e30-497346923eb3": {
+        "isSystemType": true,
+        "bundleAlias": "cards",
+        "typeAlias": "html_card",
+        "type": "static",
+        "title": "New widget",
+        "sizeX": 7.5,
+        "sizeY": 3,
+        "config": {
+          "datasources": [],
+          "timewindow": {
+            "realtime": {
+              "timewindowMs": 60000
+            }
+          },
+          "showTitle": false,
+          "backgroundColor": "#000000",
+          "color": "#ffffff",
+          "padding": "8px",
+          "settings": {
+            "cardHtml": "<div class='card'>Built-in Digital Inputs, Modbus ......</div>",
+            "cardCss": ".card {\n    font-weight: bold;\n    font-size: 16px;\n    color: #999;\n    width: 100%;\n    height: 100%;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}"
+          },
+          "title": "New HTML Card",
+          "dropShadow": true,
+          "showTitleIcon": false,
+          "iconColor": "rgba(0, 0, 0, 0.87)",
+          "iconSize": "24px",
+          "titleTooltip": "",
+          "enableFullscreen": false,
+          "widgetStyle": {},
+          "titleStyle": {
+            "fontSize": "16px",
+            "fontWeight": 400
+          },
+          "showLegend": false
+        },
+        "row": 0,
+        "col": 0,
+        "id": "d8e5dcea-43bf-c788-1e30-497346923eb3"
       }
     },
     "states": {
@@ -673,39 +763,56 @@
           "main": {
             "widgets": {
               "5b36a268-0899-30ac-6437-946a62e1864f": {
-                "sizeX": 9,
+                "sizeX": 12,
                 "sizeY": 6,
-                "row": 0,
-                "col": 15,
-                "mobileOrder": 1
+                "row": 1,
+                "col": 12,
+                "mobileOrder": 1,
+                "mobileHeight": 4
               },
               "46e0bc45-ef02-6380-d3f8-05ed0cd16c06": {
                 "sizeX": 15,
-                "sizeY": 9,
-                "row": 6,
+                "sizeY": 7,
+                "row": 7,
                 "col": 0,
                 "mobileOrder": 4
               },
               "ac84caa6-fe30-f115-f116-ffd01d3366bd": {
                 "sizeX": 6,
                 "sizeY": 6,
-                "row": 0,
+                "row": 1,
                 "col": 6,
-                "mobileOrder": 2
+                "mobileOrder": 2,
+                "mobileHeight": 4
               },
               "d3806634-131c-c086-6bd7-42d3f0cf52c1": {
                 "sizeX": 6,
                 "sizeY": 6,
-                "row": 0,
+                "row": 1,
                 "col": 0,
-                "mobileOrder": 2
+                "mobileOrder": 2,
+                "mobileHeight": 4
               },
               "6a15d1fd-d8ee-e989-efff-b49da78b3c4e": {
                 "sizeX": 9,
-                "sizeY": 9,
-                "row": 6,
+                "sizeY": 7,
+                "row": 7,
                 "col": 15,
-                "mobileOrder": 3
+                "mobileOrder": 3,
+                "mobileHeight": 4
+              },
+              "55e97a0f-faab-bfa2-4bb0-3d7cc1b8c95d": {
+                "sizeX": 24,
+                "sizeY": 1,
+                "mobileOrder": 0,
+                "row": 0,
+                "col": 0
+              },
+              "d8e5dcea-43bf-c788-1e30-497346923eb3": {
+                "sizeX": 24,
+                "sizeY": 1,
+                "row": 14,
+                "col": 0
               }
             },
             "gridSettings": {
