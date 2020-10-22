@@ -2,6 +2,8 @@
 import time
 
 from threading import Thread
+from random import choice
+from string import ascii_lowercase
 
 from thingsboard_gateway.connectors.connector import Connector, log    # Import base class for connector and logger
 
@@ -21,6 +23,8 @@ class CustomDIConnector(Thread, Connector):
         self.stopped = True    # Service variable for check state
         #self.__connected = False    # Service variable for check connection to device
         self.__devices = {}
+        self.setName(self.__config.get("name",
+                                       'DI Default ' + ''.join(choice(ascii_lowercase) for _ in range(5))))
         self.__load_converters()
         log.debug('Custom connector %s initialization success.', self.get_name())    # Message to logger
         #log.info("Devices in configuration file found: %s ", '\n'.join(device for device in self.__devices))    # Message to logger
@@ -38,6 +42,7 @@ class CustomDIConnector(Thread, Connector):
     def run(self):    # Main loop of thread
         log.debug("CustomDIConnector run")
         while True:
+            time.sleep(.01)
             for device in self.__devices:
                 current_time = time.time()
                 to_send = {}
