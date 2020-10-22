@@ -1,6 +1,11 @@
 wget https://github.com/iiot-tw/thingsboard/raw/master/igtInfo -O /neousys/igtInfo
 chmod +x /neousys/igtInfo
 
+mv /neousys/igt-startup.sh /neousys/igt-startup.sh.old
+wget https://github.com/iiot-tw/thingsboard/raw/master/localip.sh -O /neousys/localip.sh
+wget https://github.com/iiot-tw/thingsboard/raw/master/igt-startup.sh -O /neousys/igt-startup.sh
+chmod +x /neousys/*.sh
+
 #Modbus seems not work properly on 2.5.1. check later
 #wget https://github.com/thingsboard/thingsboard-gateway/releases/download/2.5.1/python3-thingsboard-gateway.deb
 wget https://github.com/thingsboard/thingsboard-gateway/releases/download/2.5.0/python3-thingsboard-gateway.deb
