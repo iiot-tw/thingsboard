@@ -35,6 +35,11 @@ connectors:
     type: di
     configuration: NT_IGT22.json
     class: CustomDIConnector
+
+  -
+    name: Modbus Connector
+    type: modbus
+    configuration: TB55.json    
 EOF
 
 sudo cp /tmp/tb_gateway.yaml /etc/thingsboard-gateway/config/tb_gateway.yaml
