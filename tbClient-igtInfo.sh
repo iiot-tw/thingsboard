@@ -3,7 +3,7 @@ ipSafe=$(ip a | grep 'inet ' | \
        sed 's|\/|@|g' | sed 's| |\&|g')
 
 echo "{\"localIp\":\"$ipSafe\", \
-       \"localIpLastUpdate\":\"$(date)\" \
+       \"localIpLastUpdate\":\"$(date)\", \
        \"modelName\":\"IGT-$(sudo /neousys/igtInfo model)\" \
       }" > /dev/shm/IP
 if [ -f "/dev/shm/IP" ]; then
