@@ -4,7 +4,8 @@ ipSafe=$(ip a | grep 'inet ' | \
 
 echo "{\"localIp\":\"$ipSafe\", \
        \"localIpLastUpdate\":\"$(date)\", \
-       \"modelName\":\"IGT-$(sudo /neousys/igtInfo model)\" \
+       \"modelName\":\"IGT-$(sudo /neousys/igtInfo model)\", \
+       \"serialNum\":\"$(sudo /neousys/igtInfo serial)\" \
       }" > /dev/shm/IP
 if [ -f "/dev/shm/IP" ]; then
   curl -X POST http://cloud.iiot.tw/api/v1/$(sudo /neousys/igtInfo token)/attributes --header "Content-Type:application/json" -d @/dev/shm/IP
