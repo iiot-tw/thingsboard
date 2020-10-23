@@ -4,5 +4,5 @@ echo "${log} begin"
 /neousys/usb.sh
 /neousys/localip.sh
 chmod 666 /dev/ttyS2
-crontab */10 * * * * /neousys/localip.sh
+crontab */10 * * * * /neousys/tbClient-igtInfo.sh
 echo "${log} end"
