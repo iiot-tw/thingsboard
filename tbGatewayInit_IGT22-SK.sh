@@ -49,8 +49,10 @@ sudo mkdir -p  /var/lib/thingsboard_gateway/extensions/di
 sudo mv ./custom_di_connector.py  /var/lib/thingsboard_gateway/extensions/di
 
 wget https://raw.githubusercontent.com/iiot-tw/thingsboard/master/NT_IGT22.json
+#todo
 #sudo sed -i "s/IGT-22_DB/$(sudo /neousys/igtInfo serial)/" NT_IGT22.json
 sudo mv ./NT_IGT22.json /etc/thingsboard-gateway/config/
 
 wget https://raw.githubusercontent.com/iiot-tw/thingsboard/master/TB55.json
+#todo: modify device name according to instance
 sudo mv ./TB55.json /etc/thingsboard-gateway/config/
