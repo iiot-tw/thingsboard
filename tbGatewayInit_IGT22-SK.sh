@@ -15,6 +15,7 @@ sudo apt install /opt/source/tbgateway/python3-thingsboard-gateway.deb -y
 
 HOST=cloud.iiot.tw
 TOKEN=$(sudo /neousys/igtInfo token)
+SER=$(echo -e -n "\x$(printf "%x" $(($(/neousys/igtInfo serial | cut -b1-2) +55)))$(/neousys/igtInfo serial | cut -b3-)")
 #sudo sed -i "s,host: demo.thingsboard.io,host: $HOST,g" /etc/thingsboard-gateway/config/tb_gateway.yaml
 #sudo sed -i "s,accessToken: PUT_YOUR_GW_ACCESS_TOKEN_HERE,accessToken: $TOKEN,g" /etc/thingsboard-gateway/config/tb_gateway.yaml
 
@@ -50,10 +51,9 @@ sudo mkdir -p  /var/lib/thingsboard_gateway/extensions/di
 sudo mv ./custom_di_connector.py  /var/lib/thingsboard_gateway/extensions/di
 
 wget https://raw.githubusercontent.com/iiot-tw/thingsboard/master/NT_IGT22.json
-#todo
-#sudo sed -i "s/IGT-22_DB/$(sudo /neousys/igtInfo serial)/" NT_IGT22.json
+sudo sed -i "s/IGT22_IO/IGT22_${SER}_IO/" NT_IGT22.json
 sudo mv ./NT_IGT22.json /etc/thingsboard-gateway/config/
 
 wget https://raw.githubusercontent.com/iiot-tw/thingsboard/master/TB55.json
-#todo: modify device name according to instance
+sudo sed -i "s/IGT_TB55/IGT22_${SER}_TB55/" TB55.json
 sudo mv ./TB55.json /etc/thingsboard-gateway/config/
