@@ -10,8 +10,8 @@ chmod +x /neousys/*.sh
 #wget https://github.com/thingsboard/thingsboard-gateway/releases/download/2.5.1/python3-thingsboard-gateway.deb
 #deb is pre-downloaded
 #wget https://github.com/thingsboard/thingsboard-gateway/releases/download/2.5.0/python3-thingsboard-gateway.deb -O /opt/source/tbgateway/python3-thingsboard-gateway.deb
-sudo apt update
-sudo apt install /opt/source/tbgateway/python3-thingsboard-gateway.deb -y
+apt update
+apt install /opt/source/tbgateway/python3-thingsboard-gateway.deb -y
 
 HOST=cloud.iiot.tw
 TOKEN=$(sudo /neousys/igtInfo token)
@@ -44,16 +44,16 @@ connectors:
     configuration: TB55.json    
 EOF
 
-sudo cp /tmp/tb_gateway.yaml /etc/thingsboard-gateway/config/tb_gateway.yaml
+cp /tmp/tb_gateway.yaml /etc/thingsboard-gateway/config/tb_gateway.yaml
 
 wget https://raw.githubusercontent.com/iiot-tw/thingsboard/master/custom_di_connector.py
-sudo mkdir -p  /var/lib/thingsboard_gateway/extensions/di
-sudo mv ./custom_di_connector.py  /var/lib/thingsboard_gateway/extensions/di
+mkdir -p  /var/lib/thingsboard_gateway/extensions/di
+mv ./custom_di_connector.py  /var/lib/thingsboard_gateway/extensions/di
 
 wget https://raw.githubusercontent.com/iiot-tw/thingsboard/master/NT_IGT22.json
-sudo sed -i "s/IGT22_IO/IGT22_${SER}_IO/" NT_IGT22.json
-sudo mv ./NT_IGT22.json /etc/thingsboard-gateway/config/
+sed -i "s/IGT22_IO/IGT22_${SER}_IO/" NT_IGT22.json
+mv ./NT_IGT22.json /etc/thingsboard-gateway/config/
 
 wget https://raw.githubusercontent.com/iiot-tw/thingsboard/master/TB55.json
-sudo sed -i "s/IGT_TB55/IGT22_${SER}_TB55/" TB55.json
-sudo mv ./TB55.json /etc/thingsboard-gateway/config/
+sed -i "s/IGT_TB55/IGT22_${SER}_TB55/" TB55.json
+mv ./TB55.json /etc/thingsboard-gateway/config/
