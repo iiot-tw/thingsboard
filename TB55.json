@@ -9,7 +9,7 @@
     "devices": [
       {
         "unitId": 1,
-        "deviceName": "IGT99998_TB55",
+        "deviceName": "IGT_TB55",
         "attributesPollPeriod": 5000,
         "timeseriesPollPeriod": 5000,
         "sendDataOnlyOnChange": false,
