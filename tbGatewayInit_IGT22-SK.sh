@@ -8,9 +8,10 @@ chmod +x /neousys/*.sh
 
 #Modbus seems not work properly on 2.5.1. check later
 #wget https://github.com/thingsboard/thingsboard-gateway/releases/download/2.5.1/python3-thingsboard-gateway.deb
-wget https://github.com/thingsboard/thingsboard-gateway/releases/download/2.5.0/python3-thingsboard-gateway.deb
+#deb is pre-downloaded
+#wget https://github.com/thingsboard/thingsboard-gateway/releases/download/2.5.0/python3-thingsboard-gateway.deb -O /opt/source/tbgateway/python3-thingsboard-gateway.deb
 sudo apt update
-sudo apt install ./python3-thingsboard-gateway.deb -y
+sudo apt install /opt/source/tbgateway/python3-thingsboard-gateway.deb -y
 
 HOST=cloud.iiot.tw
 TOKEN=$(sudo /neousys/igtInfo token)
