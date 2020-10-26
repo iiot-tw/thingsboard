@@ -4,6 +4,7 @@ ipSafe=$(ip a | grep 'inet ' | \
 
 echo "{\"localIp\":\"$ipSafe\", \
        \"localIpLastUpdate\":\"$(date)\", \
+       \"upTime\":\"$(uptime)\", \       
        \"modelName\":\"IGT-$(sudo /neousys/igtInfo model)\", \
        \"serialNum\":\"$(sudo /neousys/igtInfo serial)\" \
       }" > /dev/shm/igtInfo.json
