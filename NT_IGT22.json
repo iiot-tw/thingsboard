@@ -1,7 +1,7 @@
 {
   "devices": [
     {
-      "deviceName": "IGT-22_DB",
+      "deviceName": "IGT22_IO",
       "timeseriesPollPeriod": 5000,
       "sendDataOnlyOnChange": false,
       "timeseries": [
