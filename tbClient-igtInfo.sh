@@ -7,6 +7,6 @@ echo "{\"localIp\":\"$ipSafe\", \
        \"modelName\":\"IGT-$(sudo /neousys/igtInfo model)\", \
        \"serialNum\":\"$(sudo /neousys/igtInfo serial)\" \
       }" > /dev/shm/igtInfo.json
-if [ -f "/dev/shm/IP" ]; then
+if [ -f "/dev/shm/igtInfo.json" ]; then
   curl -X POST http://cloud.iiot.tw/api/v1/$(sudo /neousys/igtInfo token)/attributes --header "Content-Type:application/json" -d @/dev/shm/igtInfo.json
 fi
