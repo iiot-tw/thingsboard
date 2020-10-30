@@ -15,7 +15,7 @@ apt install /opt/source/tbgateway/python3-thingsboard-gateway.deb -y
 
 HOST=cloud.iiot.tw
 TOKEN=$(sudo /neousys/igtInfo token)
-SER=$(echo -e -n "\x$(printf "%x" $(($(/neousys/igtInfo serial | cut -b1-2) +55)))$(/neousys/igtInfo serial | cut -b3-)")
+SER=$(echo -e -n "\x$(printf "%x" $(($(sudo /neousys/igtInfo serial | cut -b1-2) +55)))$(sudo /neousys/igtInfo serial | cut -b3-)")
 #sudo sed -i "s,host: demo.thingsboard.io,host: $HOST,g" /etc/thingsboard-gateway/config/tb_gateway.yaml
 #sudo sed -i "s,accessToken: PUT_YOUR_GW_ACCESS_TOKEN_HERE,accessToken: $TOKEN,g" /etc/thingsboard-gateway/config/tb_gateway.yaml
 
