@@ -15,19 +15,23 @@
         },
         {
           "tag": "DO_0",
-          "address": 44
+          "address": 44,
+          "inversion": false          
         },
         {
           "tag": "DO_1",
-          "address": 45
+          "address": 45,
+          "inversion": false
         },
         {
           "tag": "DO_2",
-          "address": 46
+          "address": 46,
+          "inversion": false
         },
         {
           "tag": "DO_3",
-          "address": 47
+          "address": 47,
+          "inversion": false
         },        
         {
           "tag": "DI_0",
@@ -44,6 +48,18 @@
         {
           "tag": "DI_3",
           "address": 61
+        }
+      ],
+      "rpc": [
+        {
+          "tag": "setDO0",
+          "address": 44,
+          "inversion": false
+        },
+        {
+          "tag": "setDO1",
+          "address": 45,
+          "inversion": false
         }
       ]
     }
