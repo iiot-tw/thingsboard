@@ -44,9 +44,9 @@ EOF
 
 cp /tmp/tb_gateway.yaml /etc/thingsboard-gateway/config/tb_gateway.yaml
 
-wget https://raw.githubusercontent.com/iiot-tw/thingsboard/master/custom_di_connector.py
+wget https://raw.githubusercontent.com/iiot-tw/thingsboard/master/igt_gpio_connector.py
 mkdir -p  /var/lib/thingsboard_gateway/extensions/di
-mv ./custom_di_connector.py  /var/lib/thingsboard_gateway/extensions/di
+mv ./igt_gpio_connector.py  /var/lib/thingsboard_gateway/extensions/igt_gpio
 
 wget https://raw.githubusercontent.com/iiot-tw/thingsboard/master/NT_IGT21.json
 sed -i "s/IGT21_IO/IGT21_${SER}_IO/" NT_IGT21.json
