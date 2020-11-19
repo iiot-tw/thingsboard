@@ -45,7 +45,7 @@ EOF
 cp /tmp/tb_gateway.yaml /etc/thingsboard-gateway/config/tb_gateway.yaml
 
 wget https://raw.githubusercontent.com/iiot-tw/thingsboard/master/igt_gpio_connector.py
-mkdir -p  /var/lib/thingsboard_gateway/extensions/di
+mkdir -p  /var/lib/thingsboard_gateway/extensions/igt_gpio
 mv ./igt_gpio_connector.py  /var/lib/thingsboard_gateway/extensions/igt_gpio
 
 wget https://raw.githubusercontent.com/iiot-tw/thingsboard/master/NT_IGT21.json
