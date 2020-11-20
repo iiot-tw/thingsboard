@@ -55,3 +55,7 @@ mv ./NT_IGT21.json /etc/thingsboard-gateway/config/
 wget https://raw.githubusercontent.com/iiot-tw/thingsboard/master/TB55.json
 sed -i "s/IGT_TB55/IGT21_${SER}_TB55/" TB55.json
 mv ./TB55.json /etc/thingsboard-gateway/config/
+
+wget https://raw.githubusercontent.com/iiot-tw/thingsboard/master/CG_ESTHW50A2D.json
+sed -i "s/CG_ESTHW50A2D.json/IGT21_${SER}_TB55/" CG_ESTHW50A2D.json
+mv ./CG_ESTHW50A2D.json /etc/thingsboard-gateway/config/
