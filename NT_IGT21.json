@@ -7,11 +7,13 @@
       "timeseries": [
         {
           "tag": "BTN_0",
-          "address": 68
+          "address": 68,
+          "inversion": false
         },
         {
           "tag": "BTN_1",
-          "address": 67
+          "address": 67,
+          "inversion": false
         },
         {
           "tag": "DO_0",
@@ -35,19 +37,23 @@
         },        
         {
           "tag": "DI_0",
-          "address": 26
+          "address": 26,
+          "inversion": false
         },
         {
           "tag": "DI_1",
-          "address": 27
+          "address": 27,
+          "inversion": false
         },
         {
           "tag": "DI_2",
-          "address": 23
+          "address": 23,
+          "inversion": false
         },
         {
           "tag": "DI_3",
-          "address": 61
+          "address": 61,
+          "inversion": false
         }
       ],
       "rpc": [
