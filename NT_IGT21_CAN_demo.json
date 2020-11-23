@@ -1,0 +1,42 @@
+{
+  "interface": "socketcan",
+  "channel": "can0",
+  "backend": {
+    "fd": false
+  },
+  "reconnectPeriod": 5,
+  "devices": [
+    {
+      "name": "IGT21_CAN",
+      "sendDataOnlyOnChange": false,
+      "enableUnknownRpc": false,
+      "strictEval": false,
+      "timeseries": [
+        {
+          "key": "dcInVolt",
+          "nodeId": 419365120,
+          "isExtendedId": true,
+          "value": "0:2:big:int",
+          "expression": "value",
+          "polling": {
+            "type": "always",
+            "period": 5,
+            "dataInHex": "aaaa bbbb aaaa bbbb"
+          }
+        },
+        {
+          "key": "dcOutVolt",
+          "nodeId": 419365120,
+          "isExtendedId": true,
+          "value": "4:2:big:int",
+          "expression": "value * 10",
+          "polling": {
+            "type": "always",
+            "period": 30,
+            "dataInHex": "aa bb cc dd ee ff aa bb"
+          }
+        }
+      ]
+    }
+  ]
+}
