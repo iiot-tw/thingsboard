@@ -2,6 +2,7 @@ log="igt_startup:"
 echo "${log} begin"
 #your code...
 /neousys/tbClient-igtInfo.sh
+/neousys/canConfig.sh 1000000
 igt21 ttys2 485
 chmod 666 /dev/ttyS2
 crontab */10 * * * * /neousys/tbClient-igtInfo.sh
