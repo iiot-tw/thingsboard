@@ -39,7 +39,11 @@ connectors:
   -
     name: Modbus Connector
     type: modbus
-    configuration: TB55.json    
+    configuration: TB55.json
+  -
+    name: CAN Connector
+    type: can
+    configuration: NT_IGT21_CAN_demo.json    
 EOF
 
 cp /tmp/tb_gateway.yaml /etc/thingsboard-gateway/config/tb_gateway.yaml
