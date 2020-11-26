@@ -3,7 +3,7 @@
     "name": "CG_ESTHW50A2D",
     "type": "serial",
     "method": "rtu",
-    "port": "/dev/ttyS1",
+    "port": "/dev/ttyS2",
     "baudrate": 9600,
     "timeout": 35,
     "devices": [
