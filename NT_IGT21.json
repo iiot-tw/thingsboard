@@ -8,12 +8,12 @@
         {
           "tag": "BTN_0",
           "address": 68,
-          "inversion": false
+          "inversion": true
         },
         {
           "tag": "BTN_1",
           "address": 67,
-          "inversion": false
+          "inversion": true
         },
         {
           "tag": "DO_0",
@@ -38,22 +38,22 @@
         {
           "tag": "DI_0",
           "address": 26,
-          "inversion": false
+          "inversion": true
         },
         {
           "tag": "DI_1",
           "address": 27,
-          "inversion": false
+          "inversion": true
         },
         {
           "tag": "DI_2",
           "address": 23,
-          "inversion": false
+          "inversion": true
         },
         {
           "tag": "DI_3",
           "address": 61,
-          "inversion": false
+          "inversion": true
         }
       ],
       "rpc": [
