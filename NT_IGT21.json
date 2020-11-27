@@ -2,8 +2,8 @@
   "devices": [
     {
       "deviceName": "IGT21_IO",
-      "timeseriesPollPeriod": 5000,
-      "sendDataOnlyOnChange": false,
+      "timeseriesPollPeriod": 1000,
+      "sendDataOnlyOnChange": true,
       "timeseries": [
         {
           "tag": "BTN_0",
