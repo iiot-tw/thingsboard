@@ -33,3 +33,6 @@ delete from attribute_kv where entity_id::text not in
  and entity_id::text not in
 (select concat(substring(id,8,8),'-',substring(id,4,4),'-1',substring(id,1,3),'-',substring(id,16,4),'-',substring(id,20,12)) as entity_id from rule_chain)
 ;
+
+VACUUM FULL ANALYZE ts_kv;
+VACUUM FULL ANALYZE attribute_kv;
