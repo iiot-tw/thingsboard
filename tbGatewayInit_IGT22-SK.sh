@@ -1,3 +1,5 @@
+##ToDO: need to modify for igtInfo running in packing sd card.
+
 wget https://github.com/iiot-tw/thingsboard/raw/master/igtInfo -O /neousys/igtInfo
 chmod +x /neousys/igtInfo
 
@@ -33,10 +35,10 @@ storage:
 connectors:
 
   -
-    name: DI Connector
-    type: di
+    name: IGT GPIO Connector
+    type: igt_gpio
     configuration: NT_IGT22.json
-    class: CustomDIConnector
+    class: IGT_GPIOConnector
 
   -
     name: Modbus Connector
