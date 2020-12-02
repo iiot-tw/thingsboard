@@ -1,4 +1,4 @@
-##ToDO: need to modify for igtInfo running in packing sd card.
+##ToDO: need to modify for igtInfo running in packing sd card. setup sdcard uses chroot to run this script. however, igtInfo needs to be run on real IGT to get correct result.
 
 wget https://github.com/iiot-tw/thingsboard/raw/master/igtInfo -O /neousys/igtInfo
 chmod +x /neousys/igtInfo
