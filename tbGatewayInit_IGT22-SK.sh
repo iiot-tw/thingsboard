@@ -3,6 +3,12 @@ if [ "x$1" == "x" ] || [ "x$2" == "x" ]; then
   exit 1
 fi
 
+HOST=$1
+TOKEN=$2
+
+#echo "HOST: $1"
+#echo "TOKEN: $2"
+
 if ! [ -a /neousys/igtInfo ]; then
   wget https://github.com/iiot-tw/thingsboard/raw/master/igtInfo -O /neousys/igtInfo
   chmod +x /neousys/igtInfo
@@ -10,7 +16,7 @@ fi
 
 mv /neousys/igt-startup.sh /neousys/igt-startup.sh.old
 wget https://github.com/iiot-tw/thingsboard/raw/master/tbClient-igtInfo.sh -O /neousys/tbClient-igtInfo.sh
-wget https://github.com/iiot-tw/thingsboard/raw/master/igt-startup.sh -O /neousys/igt-startup.sh
+wget https://github.com/iiot-tw/thingsboard/raw/master/igt-startup.sh.IGT-22-DEV -O /neousys/igt-startup.sh
 chmod +x /neousys/*.sh
 
 if ! [ -a /opt/source/tbgateway/python3-thingsboard-gateway.deb ]; then
@@ -22,8 +28,6 @@ fi
 apt update
 apt install /opt/source/tbgateway/python3-thingsboard-gateway.deb -y
 
-HOST=$1
-TOKEN=$2
 #TOKEN=$(sudo /neousys/igtInfo token)
 SER=$(echo -e -n "\x$(printf "%x" $(($(sudo /neousys/igtInfo serial | cut -b1-2) +55)))$(sudo /neousys/igtInfo serial | cut -b3-)")
 #sudo sed -i "s,host: demo.thingsboard.io,host: $HOST,g" /etc/thingsboard-gateway/config/tb_gateway.yaml
@@ -45,7 +49,7 @@ connectors:
   -
     name: IGT GPIO Connector
     type: igt_gpio
-    configuration: NT_IGT22_GPIO.json
+    configuration: NT_IGT22_IO.json
     class: IGT_GPIOConnector
 
   -
@@ -65,9 +69,9 @@ wget https://raw.githubusercontent.com/iiot-tw/thingsboard/master/igt_gpio_conne
 mkdir -p  /var/lib/thingsboard_gateway/extensions/igt_gpio
 mv ./igt_gpio_connector.py  /var/lib/thingsboard_gateway/extensions/igt_gpio
 
-wget https://raw.githubusercontent.com/iiot-tw/thingsboard/master/NT_IGT22.json
-sed -i "s/IGT22_IO/IGT22_${SER}_IO/" NT_IGT22.json
-mv ./NT_IGT22.json /etc/thingsboard-gateway/config/
+wget https://raw.githubusercontent.com/iiot-tw/thingsboard/master/NT_IGT22_IO.json
+sed -i "s/IGT22_IO/IGT22_${SER}_IO/" NT_IGT22_IO.json
+mv ./NT_IGT22_IO.json /etc/thingsboard-gateway/config/
 
 wget https://raw.githubusercontent.com/iiot-tw/thingsboard/master/TB55.json
 sed -i "s/IGT_TB55/IGT22_${SER}_TTYS2/" TB55.json
