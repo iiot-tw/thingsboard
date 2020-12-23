@@ -1,0 +1,101 @@
+{
+  "devices": [
+    {
+      "deviceName": "IGT22_IO",
+      "timeseriesPollPeriod": 1000,
+      "sendDataOnlyOnChange": true,
+      "timeseries": [
+        {
+          "tag": "BTN_0",
+          "address": 4,
+          "inversion": true
+        },
+        {
+          "tag": "BTN_1",
+          "address": 5,
+          "inversion": true
+        },
+        {
+          "tag": "DO_0",
+          "address": 111,
+          "inversion": false
+        },
+        {
+          "tag": "DO_1",
+          "address": 110,
+          "inversion": false
+        },
+        {
+          "tag": "DO_2",
+          "address": 112,
+          "inversion": false
+        },
+        {
+          "tag": "DO_3",
+          "address": 113,
+          "inversion": false
+        },
+        {
+          "tag": "DO_4",
+          "address": 117,
+          "inversion": false
+        },
+        {
+          "tag": "DO_5",
+          "address": 104,
+          "inversion": false
+        },
+        {
+          "tag": "DO_6",
+          "address": 7,
+          "inversion": false
+        },
+        {
+          "tag": "DO_7",
+          "address": 103,
+          "inversion": false
+        },        
+        {
+          "tag": "DI_0",
+          "address": 116,
+          "inversion": true
+        },
+        {
+          "tag": "DI_1",
+          "address": 20,
+          "inversion": true
+        },
+        {
+          "tag": "DI_2",
+          "address": 115,
+          "inversion": true
+        },
+        {
+          "tag": "DI_3",
+          "address": 114,
+          "inversion": true
+        },        
+        {
+          "tag": "DI_4",
+          "address": 51,
+          "inversion": true
+        },
+        {
+          "tag": "DI_5",
+          "address": 52,
+          "inversion": true
+        },
+        {
+          "tag": "DI_6",
+          "address": 49,
+          "inversion": true
+        },
+        {
+          "tag": "DI_7",
+          "address": 50,
+          "inversion": true
+        }
+      ]
+    }
+  ]
+}
