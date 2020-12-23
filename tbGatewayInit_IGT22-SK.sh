@@ -1,22 +1,30 @@
-##ToDO: need to modify for igtInfo running in packing sd card. setup sdcard uses chroot to run this script. however, igtInfo needs to be run on real IGT to get correct result.
+if [ "x$1" == "x" ] || [ "x$2" == "x" ]; then
+  echo "Usage: $0 {thingsboard_host} {thingsboard_token}"
+  exit 1
+fi
 
-wget https://github.com/iiot-tw/thingsboard/raw/master/igtInfo -O /neousys/igtInfo
-chmod +x /neousys/igtInfo
+if ! [ -a /neousys/igtInfo ]; then
+  wget https://github.com/iiot-tw/thingsboard/raw/master/igtInfo -O /neousys/igtInfo
+  chmod +x /neousys/igtInfo
+fi
 
 mv /neousys/igt-startup.sh /neousys/igt-startup.sh.old
 wget https://github.com/iiot-tw/thingsboard/raw/master/tbClient-igtInfo.sh -O /neousys/tbClient-igtInfo.sh
 wget https://github.com/iiot-tw/thingsboard/raw/master/igt-startup.sh -O /neousys/igt-startup.sh
 chmod +x /neousys/*.sh
 
+if ! [ -a /opt/source/tbgateway/python3-thingsboard-gateway.deb ]; then
 #Modbus seems not work properly on 2.5.1. check later
 #wget https://github.com/thingsboard/thingsboard-gateway/releases/download/2.5.1/python3-thingsboard-gateway.deb
 #deb is pre-downloaded
-#wget https://github.com/thingsboard/thingsboard-gateway/releases/download/2.5.0/python3-thingsboard-gateway.deb -O /opt/source/tbgateway/python3-thingsboard-gateway.deb
+  wget https://github.com/thingsboard/thingsboard-gateway/releases/download/2.5.0/python3-thingsboard-gateway.deb -O /opt/source/tbgateway/python3-thingsboard-gateway.deb
+fi 
 apt update
 apt install /opt/source/tbgateway/python3-thingsboard-gateway.deb -y
 
-HOST=cloud.iiot.tw
-TOKEN=$(sudo /neousys/igtInfo token)
+HOST=$1
+TOKEN=$2
+#TOKEN=$(sudo /neousys/igtInfo token)
 SER=$(echo -e -n "\x$(printf "%x" $(($(sudo /neousys/igtInfo serial | cut -b1-2) +55)))$(sudo /neousys/igtInfo serial | cut -b3-)")
 #sudo sed -i "s,host: demo.thingsboard.io,host: $HOST,g" /etc/thingsboard-gateway/config/tb_gateway.yaml
 #sudo sed -i "s,accessToken: PUT_YOUR_GW_ACCESS_TOKEN_HERE,accessToken: $TOKEN,g" /etc/thingsboard-gateway/config/tb_gateway.yaml
@@ -37,20 +45,21 @@ connectors:
   -
     name: IGT GPIO Connector
     type: igt_gpio
-    configuration: NT_IGT22.json
+    configuration: NT_IGT22_GPIO.json
     class: IGT_GPIOConnector
 
   -
     name: Modbus Connector
     type: modbus
-    configuration: TB55.json    
+    configuration: NT_IGT22_TTYS2.json    
 EOF
 
+mv /etc/thingsboard-gateway/config/tb_gateway.yaml /etc/thingsboard-gateway/config/tb_gateway.yaml.old
 cp /tmp/tb_gateway.yaml /etc/thingsboard-gateway/config/tb_gateway.yaml
 
-wget https://raw.githubusercontent.com/iiot-tw/thingsboard/master/custom_di_connector.py
-mkdir -p  /var/lib/thingsboard_gateway/extensions/di
-mv ./custom_di_connector.py  /var/lib/thingsboard_gateway/extensions/di
+#wget https://raw.githubusercontent.com/iiot-tw/thingsboard/master/custom_di_connector.py
+#mkdir -p  /var/lib/thingsboard_gateway/extensions/di
+#mv ./custom_di_connector.py  /var/lib/thingsboard_gateway/extensions/di
 
 wget https://raw.githubusercontent.com/iiot-tw/thingsboard/master/igt_gpio_connector.py
 mkdir -p  /var/lib/thingsboard_gateway/extensions/igt_gpio
@@ -61,5 +70,5 @@ sed -i "s/IGT22_IO/IGT22_${SER}_IO/" NT_IGT22.json
 mv ./NT_IGT22.json /etc/thingsboard-gateway/config/
 
 wget https://raw.githubusercontent.com/iiot-tw/thingsboard/master/TB55.json
-sed -i "s/IGT_TB55/IGT22_${SER}_TB55/" TB55.json
-mv ./TB55.json /etc/thingsboard-gateway/config/
+sed -i "s/IGT_TB55/IGT22_${SER}_TTYS2/" TB55.json
+mv ./TB55.json /etc/thingsboard-gateway/config/NT_IGT22_TTYS2.json
