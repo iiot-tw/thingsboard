@@ -26,14 +26,14 @@ wget https://github.com/iiot-tw/thingsboard/raw/master/tbClient-igtInfo.sh -O /n
 wget https://github.com/iiot-tw/thingsboard/raw/master/igt-startup.sh.IGT-22-DEV -O /neousys/igt-startup.sh
 chmod +x /neousys/*.sh
 
-if ! [ -a /opt/source/tbgateway/python3-thingsboard-gateway.deb ]; then
-#Modbus seems not work properly on 2.5.1. check later
-#wget https://github.com/thingsboard/thingsboard-gateway/releases/download/2.5.1/python3-thingsboard-gateway.deb
-#deb is pre-downloaded
-  wget https://github.com/thingsboard/thingsboard-gateway/releases/download/2.5.0/python3-thingsboard-gateway.deb -O /opt/source/tbgateway/python3-thingsboard-gateway.deb
-fi 
-apt update
-apt install /opt/source/tbgateway/python3-thingsboard-gateway.deb -y
+#if ! [ -a /opt/source/tbgateway/python3-thingsboard-gateway.deb ]; then
+##Modbus seems not work properly on 2.5.1. check later
+##wget https://github.com/thingsboard/thingsboard-gateway/releases/download/2.5.1/python3-thingsboard-gateway.deb
+##deb is pre-downloaded
+#  wget https://github.com/thingsboard/thingsboard-gateway/releases/download/2.5.0/python3-thingsboard-gateway.deb -O /opt/source/tbgateway/python3-thingsboard-gateway.deb
+#fi 
+#apt update
+#apt install /opt/source/tbgateway/python3-thingsboard-gateway.deb -y
 
 #TOKEN=$(sudo /neousys/igtInfo token)
 SER=$(echo -e -n "\x$(printf "%x" $(($(sudo /neousys/igtInfo serial | cut -b1-2) +55)))$(sudo /neousys/igtInfo serial | cut -b3-)")
