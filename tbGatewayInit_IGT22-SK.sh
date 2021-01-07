@@ -83,3 +83,5 @@ mv ./NT_IGT22_IO.json /etc/thingsboard-gateway/config/
 wget https://raw.githubusercontent.com/iiot-tw/thingsboard/master/TB55.json
 sed -i "s/IGT_TB55/IGT22_${SER}_TTYS2/" TB55.json
 mv ./TB55.json /etc/thingsboard-gateway/config/NT_IGT22_TTYS2.json
+
+systemctl enable thingsboard-gateway.service
