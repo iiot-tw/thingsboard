@@ -62,7 +62,8 @@ connectors:
   -
     name: Modbus Connector
     type: modbus
-    configuration: NT_IGT22_TTYS2.json    
+    configuration: NT_IGT22_TTYS2.json
+
 EOF
 
 mv /etc/thingsboard-gateway/config/tb_gateway.yaml /etc/thingsboard-gateway/config/tb_gateway.yaml.old
