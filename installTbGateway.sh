@@ -6,3 +6,8 @@ if ! [ -a /opt/source/tbgateway/python3-thingsboard-gateway.deb ]; then
 fi 
 apt update
 apt install /opt/source/tbgateway/python3-thingsboard-gateway.deb -y
+
+## thingsboard-gateway 2.5.0 seems to have problem running modbus immediately after first run
+## "sude systemctl restart thingsboard-gateway" will recover this.
+## Just install pymodbus beforehand for better user experience
+sudo pip3 install pymodbus
