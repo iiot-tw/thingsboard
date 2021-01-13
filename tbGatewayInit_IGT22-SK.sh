@@ -1,3 +1,12 @@
+# This script is created as an EXAMPLE for specific purpose on Neousys IGT series.
+#
+# THIS SOFTWARE IS PROVIDED "AS IS" AND WITH ALL FAULTS.
+# NO WARRANTIES, WHETHER EXPRESS, IMPLIED OR STATUTORY, INCLUDING, BUT
+# NOT LIMITED TO, IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+# A PARTICULAR PURPOSE APPLY TO THIS SOFTWARE. THE AUTHORS SHALL NOT, UNDER ANY
+# CIRCUMSTANCES, BE LIABLE FOR SPECIAL, INCIDENTAL, OR CONSEQUENTIAL
+# DAMAGES, FOR ANY REASON WHATSOEVER.
+
 #!/bin/bash
 
 if ! id | grep -q root; then
@@ -34,11 +43,6 @@ chmod +x /neousys/*.sh
 #fi 
 #apt update
 #apt install /opt/source/tbgateway/python3-thingsboard-gateway.deb -y
-
-## thingsboard-gateway 2.5.0 seems to have problem running modbus immediately after first run
-## "sude systemctl restart thingsboard-gateway" will recover this.
-## Just install pymodbus beforehand for better user experience
-sudo pip3 install pymodbus
 
 #TOKEN=$(sudo /neousys/igtInfo token)
 SER=$(echo -e -n "\x$(printf "%x" $(($(sudo /neousys/igtInfo serial | cut -b1-2) +55)))$(sudo /neousys/igtInfo serial | cut -b3-)")
