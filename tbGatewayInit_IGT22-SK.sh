@@ -31,8 +31,8 @@ if ! [ -a /neousys/igtInfo ]; then
 fi
 
 mv /neousys/igt-startup.sh /neousys/igt-startup.sh.old
-wget https://github.com/iiot-tw/thingsboard/raw/master/igt-startup.sh.IGT-22-DEV -O /neousys/igt-startup.sh
-wget https://github.com/iiot-tw/thingsboard/raw/master/tbClient-igtInfo.sh -O /neousys/tbClient-igtInfo.sh
+wget https://raw.githubusercontent.com/iiot-tw/igt-22-dev/main/igt-startup.sh.IGT-22-DEV -O /neousys/igt-startup.sh
+wget https://raw.githubusercontent.com/iiot-tw/thingsboard/master/tbClient-igtInfo.sh -O /neousys/tbClient-igtInfo.sh
 sed -i "s/##PLACE_HOST##/${HOST}/" /neousys/tbClient-igtInfo.sh
 sed -i "s/##PLACE_TOKEN##/${TOKEN}/" /neousys/tbClient-igtInfo.sh
 chmod +x /neousys/*.sh
